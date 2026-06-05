@@ -8,6 +8,9 @@
     width: 40rem;
     height: 40rem;
 
+    max-width: 100dvw;
+    max-height: 100dvh;
+
     background: radial-gradient(circle, var(--color-accent) 0%, transparent 70%);
     opacity: 0.045;
     border-radius: 3.40282e38px;
