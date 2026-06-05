@@ -1,0 +1,16 @@
+.glow {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    display: inline-block;
+    width: 40rem;
+    height: 40rem;
+
+    background: radial-gradient(circle, var(--color-accent) 0%, transparent 70%);
+    opacity: 0.045;
+    border-radius: 3.40282e38px;
+
+    pointer-events: none;
+}
