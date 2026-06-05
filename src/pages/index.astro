@@ -1,25 +1,7 @@
 ---
-import styles from "./index.module.scss";
-
-const name = "zar";
-const bio = "construye cosas";
-
-// Enlaces principales (proyectos) — edita estos valores
-const links = [
-    { label: "proyecto-uno", href: "#" },
-    { label: "proyecto-dos", href: "#" },
-    { label: "blog", href: "#" },
-    { label: "newsletter", href: "#" },
-];
-
-// Redes sociales
-const socials = [
-    { label: "gh", href: "https://github.com/" },
-    { label: "x", href: "https://x.com/" },
-    { label: "yt", href: "https://youtube.com/" },
-    { label: "twitch", href: "https://twitch.tv/" },
-    { label: "discord", href: "https://discord.com/" },
-];
+import "./index.module.scss";
+import Glow from "@/components/glow/index.astro";
+import Landing from "@/components/landing/index.astro";
 ---
 
 <html lang="es">
@@ -28,42 +10,11 @@ const socials = [
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="generator" content={Astro.generator} />
-        <meta name="description" content={`${name} — ${bio}`} />
-        <title>{name}</title>
+        <!-- <meta name="description" content={`${name} — ${bio}`} /> -->
+        <title>zar.mx</title>
     </head>
     <body>
-        <main class={styles.page}>
-            <div class={styles.content}>
-                <section class={styles.intro}>
-                    <h1 class={styles.name}>{name}</h1>
-                    <p class={styles.bio}>{bio}</p>
-                </section>
-
-                <nav class={styles.links} aria-label="Enlaces">
-                    {
-                        links.map((link) => (
-                            <a class={styles.link} href={link.href}>
-                                {link.label}
-                            </a>
-                        ))
-                    }
-                </nav>
-
-                <nav class={styles.socials} aria-label="Redes sociales">
-                    {
-                        socials.map((social) => (
-                            <a
-                                class={styles.social}
-                                href={social.href}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                {social.label}
-                            </a>
-                        ))
-                    }
-                </nav>
-            </div>
-        </main>
+        <Landing />
+        <Glow />
     </body>
 </html>
