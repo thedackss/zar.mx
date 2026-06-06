@@ -2,7 +2,6 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
 
     display: inline-block;
     width: 40rem;
@@ -12,8 +11,40 @@
     max-height: 100dvh;
 
     background: radial-gradient(circle, var(--color-accent) 0%, transparent 70%);
-    opacity: 0.045;
     border-radius: 3.40282e38px;
 
     pointer-events: none;
+    will-change: transform, opacity;
+    animation: breathe 14s ease-in-out infinite;
+}
+
+@keyframes breathe {
+    0% {
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+        opacity: 0.045;
+    }
+    25% {
+        transform: translate(-52%, -48%) scale(1.08) rotate(2deg);
+        opacity: 0.06;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2) rotate(0deg);
+        opacity: 0.025;
+    }
+    75% {
+        transform: translate(-48%, -52%) scale(1.08) rotate(-2deg);
+        opacity: 0.06;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+        opacity: 0.045;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .glow {
+        animation: none;
+        transform: translate(-50%, -50%);
+        opacity: 0.045;
+    }
 }
