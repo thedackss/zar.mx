@@ -10,7 +10,7 @@ import Inspiration from "@/components/inpiration/index.astro";
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="generator" content={Astro.generator} />
-        <!-- <meta name="description" content={`${name} — ${bio}`} /> -->
+        <meta name="description" content="zar.mx — building things" />
         <title>zar.mx</title>
 
         <link rel="icon" href="/favicon.ico" sizes="48x48" />
@@ -20,6 +20,12 @@ import Inspiration from "@/components/inpiration/index.astro";
         <link rel="icon" type="image/svg+xml" href="/icon.svg" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://zar.mx" />
+        <meta property="og:title" content="zar.mx" />
+        <meta property="og:description" content="building things" />
+        <meta property="og:image" content="https://zar.mx/icon-512.png" />
     </head>
     <body>
         <Landing />
