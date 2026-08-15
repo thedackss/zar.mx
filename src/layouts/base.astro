@@ -11,6 +11,23 @@ interface Props {
 const { lang, description, path, ogImage } = Astro.props;
 const site = "https://zar.mx";
 const url = path === "/" ? site : `${site}${path}`;
+const locale = lang === "es" ? "es_MX" : "en_US";
+const altLocale = lang === "es" ? "en_US" : "es_MX";
+
+const jsonLd = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Diego Zamora",
+    alternateName: "zar",
+    url: site,
+    email: "mailto:diego@zar.mx",
+    sameAs: [
+        "https://zar.software",
+        "https://github.com/thedackss",
+        "https://x.com/thedackss",
+        "https://instagram.com/thedackss",
+    ],
+});
 ---
 
 <html lang={lang}>
@@ -19,6 +36,8 @@ const url = path === "/" ? site : `${site}${path}`;
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="generator" content={Astro.generator} />
         <meta name="description" content={description} />
+        <meta name="theme-color" content="#050505" />
+        <meta name="apple-mobile-web-app-title" content="zar" />
         <title>zar.mx</title>
 
         <link rel="icon" href="/favicon.ico" sizes="48x48" />
@@ -41,7 +60,14 @@ const url = path === "/" ? site : `${site}${path}`;
         <meta property="og:image" content={`${site}${ogImage}`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="zar.mx — yellow lightning bolt logo on black" />
+        <meta property="og:site_name" content="zar.mx" />
+        <meta property="og:locale" content={locale} />
+        <meta property="og:locale:alternate" content={altLocale} />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@thedackss" />
+
+        <script type="application/ld+json" set:html={jsonLd} />
     </head>
     <body>
         <slot />
