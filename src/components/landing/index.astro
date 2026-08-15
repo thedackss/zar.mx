@@ -1,25 +1,37 @@
 ---
 import styles from "./index.module.scss";
 
+interface Props {
+    lang?: "en" | "es";
+}
+
+const { lang = "en" } = Astro.props;
+
 const name = "zar.mx";
+const t = {
+    en: { breaking: "breaking things", building: "building things", email: "email" },
+    es: { breaking: "rompiendo todo", building: "construyendo algo", email: "correo" },
+}[lang];
 
 const links = [
     { label: "zar.software", href: "https://zar.software" },
     // { label: "taf16.com", href: "https://taf16.com" },
     { label: "github", href: "https://github.com/thedackss" },
-    { label: "email", href: "mailto:diego@zar.mx" },
+    { label: t.email, href: "mailto:diego@zar.mx" },
     { label: "whatsapp", href: "https://wa.me/529171040172" },
     { label: "x", href: "https://x.com/thedackss" },
     { label: "instagram", href: "https://instagram.com/thedackss" },
     { label: "discord", href: "https://discord.com/users/524970765095796777" },
 ];
+
+const other = lang === "en" ? { code: "es", href: "/es" } : { code: "en", href: "/" };
 ---
 
 <main class={styles.landing}>
     <header>
         <h1>{name}</h1>
-        <p data-breaking="breaking things" data-building="building things">
-            <span>building things</span><span data-caret aria-hidden="true"></span>
+        <p data-breaking={t.breaking} data-building={t.building}>
+            <span>{t.building}</span><span data-caret aria-hidden="true"></span>
         </p>
     </header>
 
@@ -47,7 +59,15 @@ const links = [
     </nav>
 </main>
 
+<a class={styles.lang} href={other.href} data-lang={other.code}>{other.code}</a>
+
 <script>
+    // Remember an explicit language choice so auto-detection stops overriding it
+    const langLink = document.querySelector<HTMLAnchorElement>("[data-lang]");
+    langLink?.addEventListener("click", () => {
+        localStorage.setItem("lang", langLink.dataset.lang ?? "en");
+    });
+
     // Tagline gag: type "breaking things", erase it, settle on "building things"
     const bio = document.querySelector<HTMLElement>("[data-building]");
     if (bio && !matchMedia("(prefers-reduced-motion: reduce)").matches) {

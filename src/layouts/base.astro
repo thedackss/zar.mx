@@ -1,0 +1,49 @@
+---
+import "@/pages/index.scss";
+
+interface Props {
+    lang: "en" | "es";
+    description: string;
+    path: "/" | "/es";
+    ogImage: string;
+}
+
+const { lang, description, path, ogImage } = Astro.props;
+const site = "https://zar.mx";
+const url = path === "/" ? site : `${site}${path}`;
+---
+
+<html lang={lang}>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content={Astro.generator} />
+        <meta name="description" content={description} />
+        <title>zar.mx</title>
+
+        <link rel="icon" href="/favicon.ico" sizes="48x48" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+        <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+
+        <link rel="canonical" href={url} />
+        <link rel="alternate" hreflang="en" href={site} />
+        <link rel="alternate" hreflang="es" href={`${site}/es`} />
+        <link rel="alternate" hreflang="x-default" href={site} />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={url} />
+        <meta property="og:title" content="zar.mx" />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={`${site}${ogImage}`} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+    </head>
+    <body>
+        <slot />
+    </body>
+</html>

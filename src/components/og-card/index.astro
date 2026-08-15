@@ -1,0 +1,28 @@
+---
+// Render target for the social images (1200x630). Regenerate with the built
+// site served: screenshot /og → public/og.png and /es/og → public/og-es.png
+// with playwright at exactly 1200x630.
+import "@/pages/og.scss";
+
+interface Props {
+    lang: "en" | "es";
+    tagline: string;
+}
+
+const { lang, tagline } = Astro.props;
+---
+
+<html lang={lang}>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="robots" content="noindex" />
+        <title>og</title>
+    </head>
+    <body>
+        <main class="card">
+            <img src="/icon.svg" alt="" />
+            <h1>zar<span>.mx</span></h1>
+            <p class="tagline">{tagline}</p>
+        </main>
+    </body>
+</html>
