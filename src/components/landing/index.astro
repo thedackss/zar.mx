@@ -5,16 +5,14 @@ const name = "zar.mx";
 const bio = "building things";
 
 const links = [
-    { label: "diego.zar.mx", href: "https://diego.zar.mx" },
+    { label: "zar.software", href: "https://zar.software" },
     // { label: "taf16.com", href: "https://taf16.com" },
-];
-
-// Redes sociales
-const socials = [
     { label: "github", href: "https://github.com/thedackss" },
-    { label: "discord", href: "https://discord.com/users/524970765095796777" },
+    { label: "email", href: "mailto:diego@zar.mx" },
+    { label: "whatsapp", href: "https://wa.me/529171040172" },
     { label: "x", href: "https://x.com/thedackss" },
     { label: "instagram", href: "https://instagram.com/thedackss" },
+    { label: "discord", href: "https://discord.com/users/524970765095796777" },
 ];
 ---
 
@@ -46,19 +44,4 @@ const socials = [
             ))
         }
     </nav>
-
-    <footer>
-        {
-            socials.map((social) => (
-                <a
-                    class={styles.social}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    {social.label}
-                </a>
-            ))
-        }
-    </footer>
 </main>

@@ -74,27 +74,4 @@
             }
         }
     }
-
-    footer {
-        display: flex;
-        align-items: center;
-        gap: calc(0.25rem * 5);
-
-        font-size: 0.875rem;
-
-        margin-top: calc(0.25rem * 16);
-        padding-top: calc(0.25rem * 6);
-
-        border-top: 1px solid color-mix(in oklch, var(--color-text) 5%, transparent);
-
-        a {
-            color: var(--color-muted);
-            transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            font-size: 0.875rem;
-
-            &:hover {
-                color: var(--color-text);
-            }
-        }
-    }
 }
