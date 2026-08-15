@@ -31,24 +31,6 @@ body {
 
     position: relative;
 
-    .grid {
-        position: absolute;
-        inset: 0;
-
-        background-image:
-            linear-gradient(
-                color-mix(in oklch, var(--color-accent) 7%, transparent) 1px,
-                transparent 1px
-            ),
-            linear-gradient(
-                90deg,
-                color-mix(in oklch, var(--color-accent) 7%, transparent) 1px,
-                transparent 1px
-            );
-        background-size: 48px 48px;
-        mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
-    }
-
     img {
         height: 150px;
         margin-bottom: 48px;
