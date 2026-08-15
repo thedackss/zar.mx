@@ -1,0 +1,30 @@
+---
+import "./index.scss";
+import styles from "./404.module.scss";
+import Glow from "@/components/glow/index.astro";
+---
+
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content={Astro.generator} />
+        <meta name="robots" content="noindex" />
+        <title>404 — zar.mx</title>
+
+        <link rel="icon" href="/favicon.ico" sizes="48x48" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    </head>
+    <body>
+        <main class={styles.lost}>
+            <h1>404</h1>
+            <p>nothing here</p>
+            <a href="/">
+                <span class={styles.label}>zar.mx</span>
+            </a>
+        </main>
+        <Glow />
+    </body>
+</html>
