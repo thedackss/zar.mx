@@ -1,13 +1,15 @@
 .landing {
+    // Optical centering: true center reads low with a list this tall.
     margin: auto;
+    transform: translateY(-3vh);
 
     width: 100%;
-    max-width: 20rem;
+    max-width: 15rem;
     display: flex;
     flex-direction: column;
 
     header {
-        margin-bottom: calc(0.25rem * 16);
+        margin-bottom: calc(0.25rem * 10);
 
         h1 {
             font-size: 1.25rem;
