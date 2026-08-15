@@ -2,7 +2,6 @@
 import styles from "./index.module.scss";
 
 const name = "zar.mx";
-const bio = "building things";
 
 const links = [
     { label: "zar.software", href: "https://zar.software" },
@@ -19,7 +18,9 @@ const links = [
 <main class={styles.landing}>
     <header>
         <h1>{name}</h1>
-        <p>{bio}</p>
+        <p data-breaking="breaking things" data-building="building things">
+            <span>building things</span><span data-caret aria-hidden="true"></span>
+        </p>
     </header>
 
     <nav>
@@ -45,3 +46,40 @@ const links = [
         }
     </nav>
 </main>
+
+<script>
+    // Tagline gag: type "breaking things", erase it, settle on "building things"
+    const bio = document.querySelector<HTMLElement>("[data-building]");
+    if (bio && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        const words = bio.firstElementChild as HTMLElement;
+        const caret = bio.lastElementChild as HTMLElement;
+        const sleep = (ms: number) => new Promise((done) => setTimeout(done, ms));
+
+        const type = async (text: string) => {
+            for (const char of text) {
+                words.textContent += char;
+                await sleep(55);
+            }
+        };
+
+        const erase = async () => {
+            while (words.textContent) {
+                words.textContent = words.textContent.slice(0, -1);
+                await sleep(35);
+            }
+        };
+
+        (async () => {
+            words.textContent = "";
+            caret.dataset.on = "";
+            await sleep(700);
+            await type(bio.dataset.breaking ?? "");
+            await sleep(1300);
+            await erase();
+            await sleep(300);
+            await type(bio.dataset.building ?? "");
+            await sleep(1500);
+            delete caret.dataset.on;
+        })();
+    }
+</script>
