@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist+Mono:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+    --color-void: #050505;
+    --color-text: #fafafa;
+    --color-muted: #525252;
+    --color-accent: #f8c301;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Geist Mono", monospace;
+}
+
+html,
+body {
+    background: var(--color-void);
+    color: var(--color-text);
+    overflow: hidden;
+}
+
+.card {
+    width: 1200px;
+    height: 630px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    .grid {
+        position: absolute;
+        inset: 0;
+
+        background-image:
+            linear-gradient(
+                color-mix(in oklch, var(--color-accent) 7%, transparent) 1px,
+                transparent 1px
+            ),
+            linear-gradient(
+                90deg,
+                color-mix(in oklch, var(--color-accent) 7%, transparent) 1px,
+                transparent 1px
+            );
+        background-size: 48px 48px;
+        mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+    }
+
+    img {
+        height: 150px;
+        margin-bottom: 48px;
+    }
+
+    h1 {
+        font-size: 110px;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        line-height: 1;
+
+        color: var(--color-accent);
+
+        span {
+            color: var(--color-text);
+        }
+    }
+
+    .tagline {
+        font-size: 34px;
+        margin-top: 28px;
+
+        color: color-mix(in oklch, var(--color-text) 70%, transparent);
+    }
+}
